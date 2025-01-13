@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singlepage Verkkosivu</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin: 2rem 0;
+}
+
+section#home {
+    text-align: center;
+    padding: 2rem;
+    background: #f4f4f4;
+}
+
+form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+}
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Koti</a></li>
+                <li><a href="#about">Tietoa</a></li>
+                <li><a href="#services">Palvelut</a></li>
+                <li><a href="#contact">Yhteystiedot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Tervetuloa</h1>
+            <p>My singlepage website.</p>
+        </section>
+
+        <section id="about">
+            <h2>Tietoa</h2>
+            <p>Tässä osiossa kerrotaan lisää verkkosivun tarkoituksesta.</p>
+        </section>
+
+        <section id="services">
+            <h2>Palvelut</h2>
+            <p>Listaus tarjoamistamme palveluista.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Yhteystiedot</h2>
+            <p>Ota yhteyttä meihin alla olevalla lomakkeella.</p>
+            <form id="contactForm">
+                <label for="name">Nimi:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Sähköposti:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Viesti:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Lähetä</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MySinglePageWebiste Casper Ö.</p>
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Kiitos viestistäsi! Otamme sinuun yhteyttä pian.');
+    this.reset();
+});
+    </script>
+
+</body>
+</html>
