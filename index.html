@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singlepage Verkkosivu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Koti</a></li>
+                <li><a href="#about">Tietoa</a></li>
+                <li><a href="#services">Palvelut</a></li>
+                <li><a href="#contact">Yhteystiedot</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Tervetuloa</h1>
+            <p>My singlepage website.</p>
+        </section>
+
+        <section id="about">
+            <h2>Tietoa</h2>
+            <p>Tässä osiossa kerrotaan lisää verkkosivun tarkoituksesta.</p>
+        </section>
+
+        <section id="services">
+            <h2>Palvelut</h2>
+            <p>Listaus tarjoamistamme palveluista.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Yhteystiedot</h2>
+            <p>Ota yhteyttä meihin alla olevalla lomakkeella.</p>
+            <form id="contactForm">
+                <label for="name">Nimi:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Sähköposti:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Viesti:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Lähetä</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MySinglePageWebsite Casper Ö.</p>
+    </footer>
+
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+            <p>Kiitos viestistäsi! Otamme sinuun yhteyttä pian.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

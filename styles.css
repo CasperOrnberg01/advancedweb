@@ -1,0 +1,144 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin: 2rem 0;
+}
+
+section#home {
+    text-align: center;
+    padding: 2rem;
+    background: #f4f4f4;
+}
+
+form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+#popup button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#popup button:hover {
+    background: #555;
+}
+@media (max-width: 768px) {
+    header ul {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section {
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header a {
+        font-size: 1rem;
+    }
+
+    form button {
+        width: 100%;
+        padding: 0.7rem;
+    }
+}
