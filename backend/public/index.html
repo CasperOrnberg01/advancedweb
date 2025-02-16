@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-sovellus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .input-field {
+            width: calc(100% - 20px);
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .user-list {
+            margin-top: 20px;
+        }
+        .user-item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .actions button {
+            background: #dc3545;
+            cursor: pointer;
+        }
+        .actions button:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Käyttäjien hallinta</h2>
+        
+        <input type="text" id="name" placeholder="Nimi">
+        <input type="email" id="email" placeholder="Sähköposti">
+        <input type="number" id="age" placeholder="Ikä">
+        <select id="gender">
+            <option value="">Valitse sukupuoli</option>
+            <option value="mies">Mies</option>
+            <option value="nainen">Nainen</option>
+            <option value="muu">Muu</option>
+          </select>
+        <button onclick="addUser()">Lisää käyttäjä</button>
+        
+        <div class="user-list" id="userList"></div>
+    </div>
+
+    <script>
+        async function fetchUsers() {
+            const response = await fetch('/users');
+            const users = await response.json();
+            const userList = document.getElementById('userList');
+            userList.innerHTML = '';
+            users.forEach(user => {
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('user-item');
+                userDiv.innerHTML = `<span>${user.name} - ${user.email} - Ikä: ${user.age} - Sukupuoli: ${user.gender}</span>
+                    <div class="actions">
+                        <button onclick="deleteUser(${user.id})">Poista</button>
+                    </div>`;
+
+                userList.appendChild(userDiv);
+            });
+        }
+
+        async function addUser() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+
+            if (!name || !email || !age || !gender) {
+                alert('Täytä kaikki kentät!');
+                return;
+            }
+
+            if (!email.includes('@')) {
+                alert('Sähköpostin tulee sisältää @-merkki!');
+                return;
+            }
+
+            if (age < 0 || age > 110) {
+                alert('Iän tulee olla 0-110 väliltä!');
+                return;
+            }
+
+            
+            
+            await fetch('/users', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ name, email, age: Number(age), gender })
+            });
+            
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('gender').value = '';
+            fetchUsers();
+        }
+
+        async function deleteUser(id) {
+            await fetch(`/users/${id}`, { method: 'DELETE' });
+            fetchUsers();
+        }
+
+        fetchUsers();
+    </script>
+</body>
+</html>
