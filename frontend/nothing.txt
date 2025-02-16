@@ -1,0 +1,1 @@
+This file exists just for git allowing the push of empty frontend folder.
