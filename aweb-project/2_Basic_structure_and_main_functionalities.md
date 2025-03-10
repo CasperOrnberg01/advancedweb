@@ -1,0 +1,1 @@
+# Project phase 2 - Basic structure and main functionalities
