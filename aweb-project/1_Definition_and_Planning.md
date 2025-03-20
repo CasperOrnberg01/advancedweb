@@ -1,6 +1,7 @@
 # Project phase 1 - Definition and planning
 
-Add something
+| **Environment** | **Backend** | **Frontend** | **Database** |
+| Azure | Node.js with Express | React | PostgreSQL from Azure |
 
 ## 1. User Personas
 
