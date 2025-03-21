@@ -27,7 +27,14 @@
 
 ## 3. UI Prototypes
 
-Add something
+![Login scene](UI_proto1.png)
+
+![Add items as warehouse manager](UI_proto1.1.png)
+
+![Orders section Receive/ship products](UI_proto1.2.png)
+
+![Update item quantities as a worker role](UI_proto1.3.png)
+
 
 ## 4. Information Architecture and Technical Design
 
