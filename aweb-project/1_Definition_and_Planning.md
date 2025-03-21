@@ -6,9 +6,9 @@
 
 ## 1. User Personas
 
-![User Persona 1](aweb-project/wms_userpersona1.png)
+![User Persona 1](wms_userpersona1.png)
 
-![User Persona 2](aweb-project/wms_userpersona2.png)
+![User Persona 2](wms_userpersona2.png)
 
 ## 2. Use Cases and User Flows
 
