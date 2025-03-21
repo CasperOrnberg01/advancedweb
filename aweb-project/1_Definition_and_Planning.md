@@ -1,5 +1,5 @@
 # Project phase 1 - Definition and planning
-
+Warehouse management system
 | **Environment** | **Backend** | **Frontend** | **Database** |
 | :--- | :----: | :----: | :----: |
 | Azure | Node.js with Express | React | PostgreSQL from Azure |
