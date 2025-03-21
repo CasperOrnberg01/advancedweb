@@ -12,7 +12,18 @@
 
 ## 2. Use Cases and User Flows
 
-Add something
+1. User: Warehouse manager
+   Goal: Add new item to the warehouse management system
+   User flow: Log in --> Move to "Items" scene --> Click "Add item" --> Fill the information/description for the item --> Add the item to the system database.
+
+2. User: Warehouse worker
+   Goal: Adjust/update the quantity of items in system
+   User flow: User logs in --> Move to "Items" scene ---> On the list of items, choose the wanted item --> use button +/- to add single item on click or press "change" to set a custom value.
+
+3. User: Warehouse worker
+   Goal: Receive/ship items
+   User flow: User logs in --> Move to "Orders" scene ---> Choose "Receive shipment" or "Ship products"--> choose the wanted item and their quantities what was received or shipped to keep system on track of items --> use button +/- to add single item on click or press "change" to set a custom value --> review changes --> Save changes.
+
 
 ## 3. UI Prototypes
 
