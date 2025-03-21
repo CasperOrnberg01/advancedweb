@@ -38,8 +38,22 @@ Update item quantities as worker with +/- or "change" button to set custom value
 
 ## 4. Information Architecture and Technical Design
 
-Add something
+System will be hosted in Azure, where azure databases are also provided. Database will be Azure database for PostgreSQL.
+Frontend side is and will be implemented with react. I'm using the knowledge I learned along the advanced web development course to use react to split the functionalities into different components, making it easier to develop and manage them.
+
+Backend side will be worked later on, and it will be done using Node.js along express. This backend solution will make it easier to integrate backend with frontend and also develope the system further.
+
+On this early UI prototype, it is just an basic login functionality. I have a vision, that later on there will be authentication on login, and logged in as "Warehouse manager" you have a section to register new employees as warehouse workers with login credentials.
+
+This early UI prototype also focused more on the functionalities, and later on the UI will be developed further and I will look into optimizing and making the application responsive.
 
 ## 5. Project Management and User Testing
 
-Add something
+Project management will be done with trello, I am familiar with trello from earlier courses so I favor it as Project management platform.
+Trello link: https://trello.com/b/9BNIBnDm/aweb
+
+System/User testing will be started when Basic strucutres and main functionalities have been implemented. User tests are done with the warehouse staff. I will personally test alongside developing the system, and User tests would ideally be placed after every phase, look the following table:
+
+| **Basic structure/main functionalities** | **Advanced features** | **Optimization** |
+| :--- | :----: | :----: |
+|Test 1| Test 2 | Test 3 |
