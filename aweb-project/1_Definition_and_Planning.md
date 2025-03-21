@@ -28,14 +28,14 @@
 ## 3. UI Prototypes
 
 ![Login scene](UI_proto1.png)
+
 Start scenario --> choose role Warehouse manager/ regular worker
-
 ![Add items as warehouse manager](UI_proto1.1.png)
+
 Add items as warehouse manager
-
 ![Orders section Receive/ship products](UI_proto1.2.png)
-Orders section --> choose to receive or ship products
 
+Orders section --> choose to receive or ship products
 ![Update item quantities as a worker role](UI_proto1.3.png)
 Update item quantities as worker with +/- or "change" button to set custom value
 
