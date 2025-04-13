@@ -1,8 +1,8 @@
 // backend/app.js
-//require('dotenv').config();   for local
+require('dotenv').config();
 //azure test below
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+//if (process.env.NODE_ENV !== 'production') {
+  //require('dotenv').config();
 }
 const express = require('express');
 const cors = require('cors');
