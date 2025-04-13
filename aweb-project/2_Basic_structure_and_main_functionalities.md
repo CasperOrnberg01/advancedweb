@@ -15,7 +15,7 @@ Also database configuration (db.js) is put in a separate folder.
 
 API operations include:
 
-Items:
+**Items:**
 
 -Fetching
 
@@ -26,7 +26,7 @@ Items:
 -Deleting
 
 
-Orders:
+**Orders:**
 
 -Receive orders (which directly updates inventory quantities, by increasing the qty of items in the database)
 
@@ -96,32 +96,32 @@ API calls are handled with axios, allowing updating the quantities directly from
 
 
 ![Select-role](loginchooserole.jpg)  
-*Starting screen, where role is selected.*
+**Starting screen, where role is selected.**
 
-
+<br>
 
 ![manageradddeleteitem](manageradddelete.png) 
-*Warehouse manager view, can add and delete items.*
+**Warehouse manager view, can add and delete items.**
 
-
+<br>
 
 ![manageraddeditemintodb](manageraddeditemintodb.png) 
-*Warehouse manager added new item into the inventory --> immediately updated into the database.*
+**Warehouse manager added new item into the inventory --> immediately updated into the database.**
 
 
 
 ![orderview](orderview.png)  
-*Orders -main page choose whether to receive or ship/orders. You also see the order history.*
+**Orders -main page choose whether to receive or ship/orders. You also see the order history.**
 
 
 
 ![receiveorder](receiveorder.png)  
-*Placing "Receive" -order, database immediately updates the quantity of items.*
+**Placing "Receive" -order, database immediately updates the quantity of items.**
 
 
 
 ![workeradjustqty](workeradjustqty.png)  
-*Worker can adjust the quantity of items in database. "Change" -button to set custom quantities*
+**Worker can adjust the quantity of items in database. "Change" -button to set custom quantities**
 
 
 ## 7. Code quality and documentation
