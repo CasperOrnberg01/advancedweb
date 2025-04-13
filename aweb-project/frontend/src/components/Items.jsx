@@ -13,12 +13,6 @@ function Items({ userRole }) {
   const [newItemName, setNewItemName] = useState(''); //lomakkeen tila uuden itemin nimen lisäämiselle
   const [newItemDesc, setNewItemDesc] = useState(''); //lomakkeen tila uuden itemin kuvauksen lisäämiselle
 
-  // HUOM: Kaksi URL-vaihtoehtoa: paikallinen vs. azure
-  // Kommentoi / pois-kommentoi haluamasi rivi:
-  
-  // const baseUrl = "http://localhost:3001"; // PAIKALLINEN HOSTAUS
-  const baseUrl = "casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net"; // AZURE-HOSTATTU BACKEND
-
   // Haetaan tuotteet backendistä, kun komponentti ladataan ensimmäisen kerran
   useEffect(() => {
     fetchItems();
@@ -27,7 +21,7 @@ function Items({ userRole }) {
   // Funkio, joka hakee tuotteet axios-kutsulla backendin APIsta
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/api/items`);
+      const response = await axios.get('http://localhost:3001/api/items');
       console.log('Fetched items:', response.data);
       setItems(response.data);
     } catch (error) {
@@ -40,7 +34,7 @@ function Items({ userRole }) {
     if (!newItemName) return; // Jos tuotteen nimi on tyhjä, ei tehdä mitään
     try {
       // Lähetetään POST. (nimi, määrä ja kuvaus)
-      const response = await axios.post(`${baseUrl}/api/items`, {
+      const response = await axios.post('http://localhost:3001/api/items', {
         name: newItemName,
         quantity: 0,
         description: newItemDesc,
@@ -62,7 +56,7 @@ function Items({ userRole }) {
     if (!item) return;
     const updatedQuantity = item.quantity + delta;
     try {
-      const response = await axios.put(`${baseUrl}/api/items/${id}`, {
+      const response = await axios.put(`http://localhost:3001/api/items/${id}`, {
         quantity: updatedQuantity,
       });
       // Päivitetään tila korvaamalla muokattu tuote
@@ -80,7 +74,7 @@ function Items({ userRole }) {
     const newQty = parseInt(prompt('Anna uusi määrä:'), 10);
     if (isNaN(newQty)) return; // Jos syöte ei ole numero, ei tehdä mitään
     try {
-      const response = await axios.put(`${baseUrl}/api/items/${id}`, {
+      const response = await axios.put(`http://localhost:3001/api/items/${id}`, {
         quantity: newQty,
       });
       // päivitetään local lista
@@ -96,7 +90,7 @@ function Items({ userRole }) {
   // Warehouse Manager: poistaa tuotteen backendin DELETE-pyynnöllä
   const deleteItem = async (id) => {
     try {
-      const response = await axios.delete(`${baseUrl}/api/items/${id}`);
+      const response = await axios.delete(`http://localhost:3001/api/items/${id}`);
       console.log('DELETE response:', response.data);
       // Poistetaan tuote tilasta niin, että UI päivittyy
       setItems(items.filter(item => item.id !== id));
