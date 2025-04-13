@@ -43,6 +43,8 @@ Interface for roles differs, and it determines their available functionalities:
 Axios is used to make asynchronous requests to the backend.
 ## 4. Database
 
+![Db-tables](azuredbtables.jpg)  
+
 Project uses Azure PostgreSQL db that has three tables:
 
 -items: contains details such as name, quantity and description.
