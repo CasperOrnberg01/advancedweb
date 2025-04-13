@@ -1,4 +1,5 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# Docs for the Azure Web Apps Deploy action:
+# https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy Node.js app to Azure Web App - CasperWMS
@@ -13,30 +14,43 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
           node-version: '22.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      - name: Install dependencies (backend)
+        working-directory: aweb-project/backend
+        run: npm install
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+
+      - name: Build backend (if applicable)
+        working-directory: aweb-project/backend
+        run: npm run build --if-present
+
+
+      - name: Run backend tests (if available)
+        working-directory: aweb-project/backend
+        run: npm run test --if-present
+
+
+      - name: Zip backend artifact
+        working-directory: aweb-project/backend
+        run: |
+          zip -r ../backend_release.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: release.zip
+          name: backend-app
+          path: aweb-project/backend_release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,18 +59,21 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
-      - name: Download artifact from build job
+
+      - name: Download artifact for deployment
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: backend-app
+
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
-      
+        run: unzip backend_release.zip
+
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -64,11 +81,11 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_210BDA72E8A241F59C48D377150BB09C }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7A254B4DF277432E8BF9D932754D52BD }}
 
-      - name: 'Deploy to Azure Web App'
+
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'CasperWMS'
           slot-name: 'Production'
           package: .
-          
