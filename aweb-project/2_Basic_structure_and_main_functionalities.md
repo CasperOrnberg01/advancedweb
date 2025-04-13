@@ -64,7 +64,10 @@ Table structure allows dynamic updates of stock quantities of the items when ord
 Architecture is modular with clear separation into backend, frontend and database layer.
 On backend routes, controllers and the database connection are split into separate folders which improves maintainability and keeps the structure as clear as possible.
 On frontend, Usaed React-type of approach: components, where different views (login, items, orders) are separate. This makes developing and extending the UI easier.
+
+
 ![backend](backend.png)  
+
 ![frontend](frontend.png)
 
 
