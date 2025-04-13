@@ -75,6 +75,25 @@ On frontend, Usaed React-type of approach: components, where different views (lo
 
 ## 6. Functionalities
 
+Select role --> affects the UI functionalities
+
+User roles:
+
+Warehouse manager: can add new products, delete existing products and view product details
+
+Warehouse worker: can update quantities of existing items
+
+Order management
+- Both roles are allowed to create new orders where order type receive/ship determines whether the inventory quantity is increased or decreased.
+  
+API calls are handled with axios, allowing updating the quantities directly from the UI. All adjustments update immediately in real time to the database (Azure postgreSQL).
+
+
+
+
+
+
+
 ![Select-role](loginchooserole.jpg)  
 
 ![manageradddeleteitem](manageradddelete.png) 
