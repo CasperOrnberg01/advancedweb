@@ -75,7 +75,18 @@ On frontend, Usaed React-type of approach: components, where different views (lo
 
 ## 6. Functionalities
 
-Add something
+![Select-role](loginchooserole.jpg)  
+
+![manageradddeleteitem](manageradddelete.png) 
+
+![manageraddeditemintodb](manageraddeditemintodb.png) 
+
+![orderview](orderview.png)  
+
+![receiveorder](receiveorder.png)  
+
+![workeradjustqty](workeradjustqty.png)  
+
 
 ## 7. Code quality and documentation
 
