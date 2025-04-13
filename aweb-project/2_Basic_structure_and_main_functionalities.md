@@ -8,7 +8,8 @@ On this phase I focused on every aspect, including making improvements on fronte
 Project's backend is implemented with Node.js + Express, and a React based frontend. To enhance the development process, I also used npm for dependency management and nodemon to automatically restart server, after making changes to code. Idea was also to run this whole application from azure. I created azure static web app for frontend, and Azure web app for backend. I encountered some issues with connecting the database to the backend on azure. This is why I have to forget hosting the application on azure for now, but If i have time I might relook into it on Project's phase 3. However, the application worked well locally and the integrating frontend + backend. Backend communication with the Azure PostgreSQL also worked locally.
 
 ## 2. Backend
-
+[Backend-kansio](./backend/)
+<br>
 Backend is built using Node.js + Express, handling RESTful API for products and orders.
 Code is separated into different modules for routes (items) & (orders), different controllers (itemsController) & (ordersController).
 Also database configuration (db.js) is put in a separate folder.
@@ -33,7 +34,8 @@ API operations include:
 -Ship orders (which directly updates inventory quantities, by decreasing the qty of items in the database)
 
 ## 3. Frontend
-
+[Frontend-kansio](./frontend/)
+<br>
 Frontend is implemented with react and divided into components: App, Nav, Login, Items, Orders.
 Login component allows users to select their role, manager or worker. (Set on manager role as default)
 Interface for roles differs, and it determines their available functionalities:
