@@ -88,37 +88,38 @@ Order management
 - Both roles are allowed to create new orders where order type receive/ship determines whether the inventory quantity is increased or decreased.
   
 API calls are handled with axios, allowing updating the quantities directly from the UI. All adjustments update immediately in real time to the database (Azure postgreSQL).
-
-
-
-
-
-
+<br>
+<br>
 
 ![Select-role](loginchooserole.jpg)  
 **Starting screen, where role is selected.**
 
+<br>
 <br>
 
 ![manageradddeleteitem](manageradddelete.png) 
 **Warehouse manager view, can add and delete items.**
 
 <br>
+<br>
 
 ![manageraddeditemintodb](manageraddeditemintodb.png) 
 **Warehouse manager added new item into the inventory --> immediately updated into the database.**
 
-
+<br>
+<br>
 
 ![orderview](orderview.png)  
 **Orders -main page choose whether to receive or ship/orders. You also see the order history.**
 
-
+<br>
+<br>
 
 ![receiveorder](receiveorder.png)  
 **Placing "Receive" -order, database immediately updates the quantity of items.**
 
-
+<br>
+<br>
 
 ![workeradjustqty](workeradjustqty.png)  
 **Worker can adjust the quantity of items in database. "Change" -button to set custom quantities**
