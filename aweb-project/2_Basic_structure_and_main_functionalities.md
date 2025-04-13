@@ -95,6 +95,7 @@ API calls are handled with axios, allowing updating the quantities directly from
 
 ![Select-role](loginchooserole.jpg)  
 **Starting screen, where role is selected.**
+<br>
 **Example from Login.jsx:**
 ```
 //Login.jsx:
@@ -111,9 +112,11 @@ function Login({ onLogin }) {
 ```
 <br>
 <br>
+<br>
 
 ![manageradddeleteitem](manageradddelete.png) 
 **Warehouse manager view, can add and delete items.**
+<br>
 **Example from Items.jsx:**
 ```
 //Items.jsx:
@@ -150,10 +153,12 @@ function Login({ onLogin }) {
 ```
 <br>
 <br>
+<br>
 
 ![manageraddeditemintodb](manageraddeditemintodb.png) 
 **Warehouse manager added new item into the inventory --> immediately updated into the database.**
 
+<br>
 <br>
 <br>
 
@@ -162,15 +167,18 @@ function Login({ onLogin }) {
 
 <br>
 <br>
+<br>
 
 ![receiveorder](receiveorder.png)  
 **Placing "Receive" -order, database immediately updates the quantity of items.**
 
 <br>
 <br>
+<br>
 
 ![workeradjustqty](workeradjustqty.png)  
 **Worker can adjust the quantity of items in database. "Change" -button to set custom quantities**
+<br>
 **Example from Items.jsx**
 ```
  // Warehouse Worker: muuttaa tuotteen määrää
