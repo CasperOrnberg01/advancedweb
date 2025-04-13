@@ -1,10 +1,7 @@
 // backend/config/db.js
 const { Pool } = require('pg');
 require('dotenv').config();
-//azure test below
-//if (process.env.NODE_ENV !== 'production') {
- // require('dotenv').config();
-//}
+
 //Pool luo yhteyden pgSQL db urlin avulla
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
