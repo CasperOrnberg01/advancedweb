@@ -95,6 +95,7 @@ API calls are handled with axios, allowing updating the quantities directly from
 
 ![Select-role](loginchooserole.jpg)  
 **Starting screen, where role is selected.**
+**Example from Login.jsx:**
 ```
 //Login.jsx:
 // Roolin valinta, käyttäjä valitsee manager/worker
@@ -113,6 +114,7 @@ function Login({ onLogin }) {
 
 ![manageradddeleteitem](manageradddelete.png) 
 **Warehouse manager view, can add and delete items.**
+**Example from Items.jsx:**
 ```
 //Items.jsx:
 // Warehouse Manager: lisää uuden tuotteen backendin POST-pyynnöllä
@@ -169,6 +171,7 @@ function Login({ onLogin }) {
 
 ![workeradjustqty](workeradjustqty.png)  
 **Worker can adjust the quantity of items in database. "Change" -button to set custom quantities**
+**Example from Items.jsx**
 ```
  // Warehouse Worker: muuttaa tuotteen määrää
   const adjustQuantity = async (id, delta) => {
