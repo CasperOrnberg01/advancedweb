@@ -95,13 +95,57 @@ API calls are handled with axios, allowing updating the quantities directly from
 
 ![Select-role](loginchooserole.jpg)  
 **Starting screen, where role is selected.**
-
+```
+//Login.jsx:
+// Roolin valinta, käyttäjä valitsee manager/worker
+function Login({ onLogin }) {
+  //oletus rooli manager
+  const [role, setRole] = useState('manager');
+  
+  // Kutsutaan onLogin(role), kun lomake lähetetään
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin(role);
+  };
+```
 <br>
 <br>
 
 ![manageradddeleteitem](manageradddelete.png) 
 **Warehouse manager view, can add and delete items.**
-
+```
+//Items.jsx:
+// Warehouse Manager: lisää uuden tuotteen backendin POST-pyynnöllä
+ const handleAddItem = async () => {
+    if (!newItemName) return; // Jos tuotteen nimi on tyhjä, ei tehdä mitään
+    try {
+      // Lähetetään POST. (nimi, määrä ja kuvaus)
+      const response = await axios.post('http://localhost:3001/api/items', {
+        name: newItemName,
+        quantity: 0,
+        description: newItemDesc,
+      });
+      console.log('POST response:', response.data);
+      // Lisätään uusi tuote tilaan, jolloin UI päivittyy
+      setItems([...items, response.data]);
+      setNewItemName('');
+      setNewItemDesc('');
+    } catch (error) {
+      console.error('Virhe tuotetta lisättäessä:', error);
+    }
+  };
+// Warehouse Manager: poistaa tuotteen backendin DELETE-pyynnöllä
+  const deleteItem = async (id) => {
+    try {
+      const response = await axios.delete(`http://localhost:3001/api/items/${id}`);
+      console.log('DELETE response:', response.data);
+      // Poistetaan tuote tilasta niin, että UI päivittyy
+      setItems(items.filter(item => item.id !== id));
+    } catch (error) {
+      console.error('Virhe tuotteen poistamisessa:', error);
+    }
+  };
+```
 <br>
 <br>
 
@@ -125,7 +169,45 @@ API calls are handled with axios, allowing updating the quantities directly from
 
 ![workeradjustqty](workeradjustqty.png)  
 **Worker can adjust the quantity of items in database. "Change" -button to set custom quantities**
+```
+ // Warehouse Worker: muuttaa tuotteen määrää
+  const adjustQuantity = async (id, delta) => {
+    // Etsitään tuote, jota halutaan muuttaa
+    const item = items.find(item => item.id === id);
+    if (!item) return;
+    const updatedQuantity = item.quantity + delta;
+    try {
+      const response = await axios.put(`http://localhost:3001/api/items/${id}`, {
+        quantity: updatedQuantity,
+      });
+      // Päivitetään tila korvaamalla muokattu tuote
+      const updatedItems = items.map(item =>
+        item.id === id ? response.data : item
+      );
+      setItems(updatedItems);
+    } catch (error) {
+      console.error('Virhe määrän päivityksessä:', error);
+    }
+  };
 
+// Warehouse Worker: muuttaa tuotteen määrää suoraan syötteellä
+  const changeQuantity = async (id) => {
+    const newQty = parseInt(prompt('Anna uusi määrä:'), 10);
+    if (isNaN(newQty)) return; // Jos syöte ei ole numero, ei tehdä mitään
+    try {
+      const response = await axios.put(`http://localhost:3001/api/items/${id}`, {
+        quantity: newQty,
+      });
+      // päivitetään local lista
+      const updatedItems = items.map(item =>
+        item.id === id ? response.data : item
+      );
+      setItems(updatedItems);
+    } catch (error) {
+      console.error('Virhe määrän muuttamisessa:', error);
+    }
+  };
+```
 
 ## 7. Code quality and documentation
 
