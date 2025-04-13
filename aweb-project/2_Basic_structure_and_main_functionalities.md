@@ -52,6 +52,7 @@ Project uses Azure PostgreSQL db that has three tables:
 -order_items: join table that links orders to their products by product ID and quantities.
 
 
+
 Table structure allows dynamic updates of stock quantities of the items when orders are placed:
 
 -Shipping: Quantity of products from the stock (items) decrease by the amount of specific products shipped.
