@@ -12,14 +12,24 @@ Project's backend is implemented with Node.js + Express, and a React based front
 Backend is built using Node.js + Express, handling RESTful API for products and orders.
 Code is separated into different modules for routes (items) & (orders), different controllers (itemsController) & (ordersController).
 Also database configuration (db.js) is put in a separate folder.
+
 API operations include:
+
 Items:
+
 -Fetching
+
 -Adding
+
 -Updating
+
 -Deleting
+
+
 Orders:
+
 -Receive orders (which directly updates inventory quantities, by increasing the qty of items in the database)
+
 -Ship orders (which directly updates inventory quantities, by decreasing the qty of items in the database)
 
 ## 3. Frontend
@@ -34,12 +44,18 @@ Axios is used to make asynchronous requests to the backend.
 ## 4. Database
 
 Project uses Azure PostgreSQL db that has three tables:
+
 -items: contains details such as name, quantity and description.
+
 -orders: Stores order details: order type, creation time.
+
 -order_items: join table that links orders to their products by product ID and quantities.
 
+
 Table structure allows dynamic updates of stock quantities of the items when orders are placed:
+
 -Shipping: Quantity of products from the stock (items) decrease by the amount of specific products shipped.
+
 -Receiving: Quantity of products from the stock (items) increase by the amount of specific products received.
 
 ## 5. Basic structure and architecture
