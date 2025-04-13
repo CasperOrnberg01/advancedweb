@@ -127,12 +127,39 @@ API calls are handled with axios, allowing updating the quantities directly from
 
 ## 7. Code quality and documentation
 
-Add something
-
+- Code is organized clear manner, making it easier to extend in the future. 
+- Each module in backend (routes, controllers) and React components in frontend are commented and have clear names for functions.
+- 
 ## 8. Testing and error handling
 
-Add something
+During development I did manual testing. For example for the API endpoints with curl. In the backend try/catch blocks are used for error handling. Errors are logged and then passed to error handling middleware.
+In the future automated tests could be done with Cypress, since I've got some experience on software testing course with it.
+
+**Example from "itemsController.js":**
+```
+// Hae kaikki tuotteet tietokannasta
+exports.getAllItems = async (req, res, next) => {
+  try {
+    const result = await db.query('SELECT * FROM items ORDER BY id');
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Virhe getAllItemsissä:", error);
+    next(error);
+  }
+};
+```
+In this code snippet, Try block fetches all items from the database, then catch block is for error, if one occurs. Error is then logged with "console.error", then "next(error)" is called so middleware for error handling takes in.
+
 
 ## 9. User interface and interaction
 
-Add something
+- User interface is still on very early level, but it is pretty straightforward and user-friendly. Login section allows role selection, after which interface adjusts based on whether the user is a manager or a worker.
+- Navigation component (Nav.jsx) provides easy switching between "Items" and "orders" -views.
+- Both product and order listings include interactive elements that allow for direct adjustments.
+- If there is enough time for the optional phase 3, working on enhancing the UI would be one of my top priorities.
+
+## 10. Ideas for phase 3 (If I have enough time, due to the large amount of courses)
+
+- Enhancing and making UI aesthetic
+- Try to solve the problem with connecting backend in azure web app to the azure database
+- Implement login and user registration (manager could have functionality to register new users with credentials), also use database where user information are stored. bcrypt+JWT token?
