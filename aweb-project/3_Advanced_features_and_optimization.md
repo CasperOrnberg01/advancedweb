@@ -10,6 +10,7 @@ _Which use case or aspect of the application did you choose to improve or expand
 ## 🔍 Original Definition
 
 _Link or reference to the original use case or requirement from Phase 1._
+<br>
 Original vision was to host entire application in azure:
 [Link to phase 1 definition and planning](1_Definition_and_Planning.md)
 ---
