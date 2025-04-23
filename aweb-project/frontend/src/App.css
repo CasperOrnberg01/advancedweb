@@ -46,3 +46,28 @@ button {
   padding: 8px 12px;
   margin: 5px;
 }
+
+
+.login label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;             
+}
+
+
+.login label input[type="radio"] {
+  margin: 0;         
+}
+
+.login label,
+.register-user label {
+  display: inline-flex;
+  align-items: center;   
+  gap: 0.5rem;        
+}
+
+
+.login label input[type="radio"],
+.register-user label input[type="radio"] {
+  margin: 0;
+}
