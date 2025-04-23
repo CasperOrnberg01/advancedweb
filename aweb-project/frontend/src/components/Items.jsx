@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-/**
- * Items-komponentti hallitsee varastossa olevia tuotteita
- * Se näyttää lisäyslomakkeen manager-roolille,
- * muokkaus- ja poistonapit managerille, sekä
- * määrämuokkausnappulat (worker-roolille).
- */
+
+//Items komponentti tuotteiden hallitsemiseen
+//Itemeiden lisäys lomake managerilla, sekä muokkaus ja poistonapit
+//määrän muokkaus optio worker roolille
 function Items({ userRole }) {
   // Tilat tuotteille, uuden tuotteen nimelle ja kuvaukselle
   const [items, setItems] = useState([]);
@@ -35,12 +33,12 @@ function Items({ userRole }) {
     }
   };
 
-  // Warehouse Manager: lisää uuden tuotteen backendin POST-pyynnöllä
+  // Warehouse Manager: lisätään uusi itemi backendin POST -pyynnöllä
   const handleAddItem = async () => {
     if (!newItemName) return; // Jos tuotteen nimi on tyhjä, ei tehdä mitään
     try {
-      // Lähetetään POST. (nimi, määrä ja kuvaus)
-      const response = await axios.post(`${baseUrl}/api/items`, {
+      // Lähetetään POST (nimi, määrä ja kuvaus)
+      const response = await axios.post(`${baseUrl}/api/items`,{
         name: newItemName,
         quantity: 0,
         description: newItemDesc,
@@ -55,7 +53,7 @@ function Items({ userRole }) {
     }
   };
 
-  // Warehouse Worker: muuttaa tuotteen määrää
+  // Warehouse Worker, muutaa tuotteen määrää
   const adjustQuantity = async (id, delta) => {
     // Etsitään tuote, jota halutaan muuttaa
     const item = items.find(item => item.id === id);
@@ -75,7 +73,7 @@ function Items({ userRole }) {
     }
   };
 
-  // Warehouse Worker: muuttaa tuotteen määrää suoraan syötteellä
+  // Warehouse Worker muuttaa tuotteen määrää suoraan syötteellä
   const changeQuantity = async (id) => {
     const newQty = parseInt(prompt('Anna uusi määrä:'), 10);
     if (isNaN(newQty)) return; // Jos syöte ei ole numero, ei tehdä mitään
@@ -93,12 +91,12 @@ function Items({ userRole }) {
     }
   };
 
-  // Warehouse Manager: poistaa tuotteen backendin DELETE-pyynnöllä
+  // Warehouse Manager, tuotteen poisto
   const deleteItem = async (id) => {
     try {
       const response = await axios.delete(`${baseUrl}/api/items/${id}`);
       console.log('DELETE response:', response.data);
-      // Poistetaan tuote tilasta niin, että UI päivittyy
+      // Poistetaan tuote tilasta niin ja UI päivittyy
       setItems(items.filter(item => item.id !== id));
     } catch (error) {
       console.error('Virhe tuotteen poistamisessa:', error);
@@ -130,7 +128,7 @@ function Items({ userRole }) {
         </div>
       )}
 
-      {/* Warehouse Worker -näkymä: Näyttää tuotteet, ja tarjoaa vaihtoehdot määrän päivittämiseen */}
+      {/* Warehouse Worker -näkymä: Näyttää tuotteet ja +- sekä change painike */}
       {userRole === 'worker' && (
         <div className="update-quantity">
           <h3>Päivitä tuotteen määrä</h3>
@@ -150,7 +148,7 @@ function Items({ userRole }) {
         </div>
       )}
 
-      {/* Warehouse Manager -näkymä: Näyttää nykyiset tuotteet listana, jossa myös delete-painike on mukana */}
+      {/* Warehouse Manager -näkymä: Näyttää nykyiset tuotteet jossa myös delete painike on mukana */}
       {userRole === 'manager' && (
         <div className="items-list">
           <h3>Nykyiset tuotteet</h3>
