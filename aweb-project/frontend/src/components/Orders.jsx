@@ -16,7 +16,7 @@ function Orders() {
 
   // Kaksi URL-vaihtoehtoa. Kommentoi / pois-kommentoi haluamasi rivi:
   // const baseUrl = "http://localhost:3001"; // PAIKALLINEN
-  const baseUrl = "casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net"; // AZURE-BACKEND
+  const baseUrl = "https://casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net"; // AZURE-BACKEND
 
   // heti ensirenderöinnin jälkeen
   useEffect(() => {
