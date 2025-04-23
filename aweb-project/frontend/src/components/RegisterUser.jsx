@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function RegisterUser() {
+  //lomakkeen kenttien tilat
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole]         = useState('worker');
-
+const API_URL = 'https://casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net'
   const handleRegister = async () => {
     try {
+      // POST-pyyntö backedin api/users/register
       await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/users/register`,
+        `${API_URL}/api/users/register`,
         { username, password, role }
       );
       alert('User registered');
+      //Tyhjennetään lomake onnistumisen jälkeen
       setUsername('');
       setPassword('');
     } catch (err) {
