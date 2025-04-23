@@ -1,22 +1,30 @@
+// src/App.jsx
 import React, { useState } from 'react';
-import Login from './components/Login';
-import Nav from './components/Nav';
-import Items from './components/Items';
-import Orders from './components/Orders';
+import Login        from './components/Login';
+import Nav          from './components/Nav';
+import Items        from './components/Items';
+import Orders       from './components/Orders';
+import RegisterUser from './components/RegisterUser';
 import './App.css';
 
 function App() {
-  const [userRole, setUserRole] = useState(null);
-  const [currentScene, setCurrentScene] = useState('login'); // 'login', 'items', 'orders'
+  // Tallennetaan full user (id+username ja rooli)
+  const [user, setUser] = useState(null);
+
+  // aseta login näkymä
+  const [currentScene, setCurrentScene] = useState('login');
+
+  // Valittu tilaus Orders komponentissa
   const [selectedOrderId, setSelectedOrderId] = useState(null);
 
-  // handleLogin(role) asettaa roolin (manager/worker) ja siirtyy Items näkymään
-  const handleLogin = (role) => {
-    setUserRole(role);
+  // Kun login onnistuu, userData sisältää id, username + role
+  const handleLogin = (userData) => {
+    setUser(userData);
     setCurrentScene('items');
   };
 
-  // navigateTo(scene) vaihtaa sceneä. jos se vaihtuu muualle kuin orders nollataan valittu tilaus
+  
+  //vaihdetaan klikattua näkymää, orders näkymästä poistuminen resettaa tilauksen
   const navigateTo = (scene) => {
     setCurrentScene(scene);
     if (scene !== 'orders') {
@@ -26,17 +34,37 @@ function App() {
 
   return (
     <div className="App">
-      {currentScene === 'login' && <Login onLogin={handleLogin} />}
-      {currentScene !== 'login' && (
-        <Nav currentScene={currentScene} onNavigate={navigateTo} />
+      {/* Login */}
+      {currentScene === 'login' && (
+        <Login onLogin={handleLogin} />
       )}
-      {currentScene === 'items' && <Items userRole={userRole} />}
+
+      {/* Navigation */}
+      {currentScene !== 'login' && (
+        <Nav
+          currentScene={currentScene}
+          onNavigate={navigateTo}
+          userRole={user.role}
+        />
+      )}
+
+      {/* Items */}
+      {currentScene === 'items' && (
+        <Items userRole={user.role} />
+      )}
+
+      {/* Orders */}
       {currentScene === 'orders' && (
         <Orders
-          userRole={userRole}
+          userRole={user.role}
           selectedOrderId={selectedOrderId}
           setSelectedOrderId={setSelectedOrderId}
         />
+      )}
+
+      {/* RegisterUser (vain managerilla) */}
+      {currentScene === 'register' && user.role === 'manager' && (
+        <RegisterUser />
       )}
     </div>
   );
