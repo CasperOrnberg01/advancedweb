@@ -5,7 +5,7 @@ import axios from 'axios';
 function Login({ onLogin }) {
   //oletus rooli manager
   const [role, setRole] = useState('manager');
-  
+  const API_URL = 'https://casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net'
 
   //username kenttä (phase3)
   const [username, setUsername] = useState('');
@@ -16,7 +16,7 @@ function Login({ onLogin }) {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/users/login`,
+        `${API_URL}/api/users/login`,
         { username, password, role }
       );
       onLogin(res.data); // res.data sisältää id, username, role
