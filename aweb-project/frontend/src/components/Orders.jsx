@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-/**
- * Orders-komponentti:
- * - listaa olemassa olevat orderit (GET /api/orders)
- * - mahdollistaa uuden tilauksen luomisen (receive tai ship)
- *   -> varasto päivittyy backendin puolella
- */
+
+//Orders-komponentti:
+ //listaa olemassa olevat orderit
+ //mahdollistaa uuden tilauksen luomisen (receive tai ship)
+ // varaston (itemeiden määrä päivittyy backendiin kun tilaus tehdään
 function Orders() {
   const [orders, setOrders] = useState([]); // Kaikki tilaukset
   const [items, setItems] = useState([]);   // Varaston itemit
   const [isCreating, setIsCreating] = useState(false);
   const [orderType, setOrderType] = useState('receive'); // 'receive' tai 'ship'
-  const [selectedItems, setSelectedItems] = useState([]); 
+  const [selectedItems, setSelectedItems] = useState([]); // sekectedItems: valittu itemId, nimi, määrä (qty)
 
-  // Kaksi URL-vaihtoehtoa. Kommentoi / pois-kommentoi haluamasi rivi:
   // const baseUrl = "http://localhost:3001"; // PAIKALLINEN
   const baseUrl = "https://casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net"; // AZURE-BACKEND
 
-  // heti ensirenderöinnin jälkeen
+  //kutsutaan fetchOrders ja fetchAllItems kun komponentti mountataan
   useEffect(() => {
     fetchOrders();
     fetchAllItems();
   }, []);
 
-  // Hakee tilaukset
+  //hakee jo luodut tilaukset
   const fetchOrders = async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/orders`);
@@ -34,7 +32,8 @@ function Orders() {
     }
   };
 
-  // Hakee varaston itemit -> valitaan niistä tilauksen tuotteet
+ //hakee varastossa olevat itemit
+  //Tilaukseen voi lisätä tuotteita varaston itemeiden perusteella
   const fetchAllItems = async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/items`);
@@ -44,15 +43,16 @@ function Orders() {
     }
   };
 
-  // Aloita uuden tilauksen luonti (receive/ship)
+  // Aloita uuden tilauksen luonti
   const handleCreateOrderStart = (type) => {
     setOrderType(type);
     setSelectedItems([]); 
     setIsCreating(true);
   };
 
-  // Käyttäjä syöttää itemId:lle qty
+  // Käyttäjä syöttää itemin määrän
   const handleSelectItemQty = (itemId, name, qty) => {
+    // Etsi onko item jo selectedItems-listassa
     const idx = selectedItems.findIndex(si => si.itemId === itemId);
     if (idx !== -1) {
       // Päivitetään jo listalla olevaa
@@ -60,19 +60,19 @@ function Orders() {
       newArr[idx].quantity = qty;
       setSelectedItems(newArr);
     } else {
-      // Uusi item
+      //lisätään uusi item valittuihin
       setSelectedItems([...selectedItems, { itemId, name, quantity: qty }]);
     }
   };
 
-  // POST /api/orders
+    // Lähetä POST /api/orders
   const handleSubmitOrder = async () => {
     try {
-      // Ota vain >0 määrät
+      // ota vain ne, joiden määrä > 0
       const payloadItems = selectedItems
         .filter(si => si.quantity > 0)
         .map(si => ({
-          item_id: si.itemId,
+          item_id: si.itemId, //rungoksi itemId ja quantity
           quantity: si.quantity,
         }));
 
@@ -90,7 +90,6 @@ function Orders() {
 
       // Päivitä tilauslista
       fetchOrders();
-      // jos haluat päivittää items-lista, voit kutsua myös fetchAllItems()
     } catch (err) {
       console.error('Virhe luodessa tilausta:', err);
     }
