@@ -21,12 +21,13 @@ _Link or reference to the original use case or requirement from Phase 1._
 ## 🔄 Implementation
 
 _Describe what you implemented in this phase. Focus on what changed or was added:_
+
 ### Hosting the application in azure environment
 - Backend to azure web app via github workflows
 - Frontend to azure static web app via github workflows
 - Connected Azure PostgreSQL database to azure backend.
 
-### Hosting the application in azure environment
+#### What changed or was added to host application in azure environment
 
 - Connection string in azure backend web app was slightly incorrect. Adjusted it in azure at *Environment variables* > *App settings*.
 - Added console.log lines in db.js file to find potential issues in backend log stream.
