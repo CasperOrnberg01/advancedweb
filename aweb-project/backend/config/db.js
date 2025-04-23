@@ -1,4 +1,5 @@
 // backend/config/db.js
+console.log('>>> process.env.DATABASE_URL =', process.env.DATABASE_URL); //azure test line
 const { Pool } = require('pg');
 require('dotenv').config();
 
