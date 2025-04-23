@@ -17,7 +17,7 @@ function Items({ userRole }) {
   // Kommentoi / pois-kommentoi haluamasi rivi:
   
   // const baseUrl = "http://localhost:3001"; // PAIKALLINEN HOSTAUS
-  const baseUrl = "casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net"; // AZURE-HOSTATTU BACKEND
+  const baseUrl = "https://casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net"; // AZURE-HOSTATTU BACKEND
 
   // Haetaan tuotteet backendistä, kun komponentti ladataan ensimmäisen kerran
   useEffect(() => {
