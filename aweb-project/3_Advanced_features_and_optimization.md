@@ -50,7 +50,10 @@ _Describe what you implemented in this phase. Focus on what changed or was added
 <br>
 
 ### Register new user (manager) + Login (authentication)
--Code for this implementation at [usersControllerj.js](../backend/controllers/usersController.js):
+- User ID, username, password_hash and role are stored in azure PostgreSQL db, see below:
+  ![users_table](censoredhashes.png)
+  
+-Code for this implementation at [usersController.js](../backend/controllers/usersController.js):
 ```
 const db     = require('../config/db'); //tietokantayhteys poolin avulla
 const bcrypt = require('bcrypt'); //bcrypt hashaamiseen ja varmistamsieen
