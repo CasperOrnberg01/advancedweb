@@ -106,4 +106,31 @@ exports.authenticate = async (req,res,next) => {
 };
 ```
 
+<br>
+
+-Routes:
+```
+// routes FROM /backend/routes/users.js:
+
+const express         = require('express');
+const router          = express.Router();
+const usersController = require('../controllers/usersController');
+
+//rekisteröinti POST
+router.post('/register', usersController.registerUser);
+//LOGin POST
+router.post('/login',    usersController.authenticate);
+
+module.exports = router;
+```
+
+<br>
+
+```
+//  routes FROM /backend/app.js:
+
+const usersRoutes = require('./routes/users'); //users reitit (phase3)
+app.use('/api/users', usersRoutes); // rekisteröi users reitit (phase3)
+
+```
 
