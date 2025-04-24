@@ -11,7 +11,7 @@
 | 13.4.2025 | 9 | Refining the code + Azure host + Writing the report  | Refined the code, tried to move the application completely to azure. Backend on azure web app (success), Frontend on azure static web app (success), but encountered issues with connecting the database to the backend on azure web app. Felt like wasted hours, but I believe if I have time to work on optional phase 3 I might get it to work. I felt like I was running out of time today.  |
 | 23.4.2025 | 3 | Worked on fixing the integration problem with azure db (postgresql), frontend(azure static web app) and backend (azure web app). Had to also do minor testing w/ dev tools to identify the issues.  | Successfully integrated backend+frontend and db  |
 | 23.4.2025 | 6 | Implementing login functionalities for the wms using bcrypt  | pushed into azure, had some problems again with azure and bcrypt dependecies but finally got it to work and hope it keeps working. |
-| x | x | x  | x  |
+| 24.4.2025 | 2 | Phase 3 (optional) report  | Finished phase 3 report  |
 | x | x | x  | x  |
 | x | x | x  | x  |
 | x | x | x  | x  |
