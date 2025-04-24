@@ -17,16 +17,20 @@ This idea I also had starting from phase1, but on phase 2 more specifically I wa
 
 _Link or reference to the original use case or requirement from Phase 1._
 <br>
+
 ### Original vision was to host entire application in azure:
 - Backend to azure web app via github workflows
 - Frontend to azure static web app via github workflows
 - Connected Azure PostgreSQL database to azure backend.
 - [Link to phase 1 definition and planning](1_Definition_and_Planning.md)
+- 
 <br>
 <br>
+
 ### Register new user (functionality available only when logged in as manager)
 - This wasn't actually requirement, but I mentioned it on phase 1, as a potential development for the application.
 - Please see phase 1, chapter 4: [Link to phase 1 definition and planning](1_Definition_and_Planning.md)
+  
 ### Login (previously just setting role, now includes authentication) 
 - This wasn't requirement either, but was also mentioned on phase 1 as a potential development for the application.
 - Please see phase 1, chapter 4: [Link to phase 1 definition and planning](1_Definition_and_Planning.md)
