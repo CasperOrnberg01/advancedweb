@@ -3,7 +3,7 @@
 ## 🎯 Chosen Use Cases or Features to Improve
 
 ### Hosting the application in azure environment
-- I chose to work on the issue I encountered on phase, where my intention was to host entire application on azure. I had some issues with getting the azure postgresql database connected to the azure web app back end properly. My phase 2 implementation worked locally.
+- I chose to work on the issue I encountered on phase 2, where my intention was to host entire application on azure. I had some issues with getting the azure postgresql database connected to the azure web app backend properly. My phase 2 implementation worked locally.
 
 ### Register new user (functionality available only when logged in as manager)
 I had this idea starting from phase 1, where warehouse manager would be able to register new users to the warehouse management system, once the authentication part for login is implemented.
