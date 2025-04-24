@@ -18,7 +18,7 @@ This idea I also had starting from phase1, but on phase 2 more specifically I wa
 - Frontend to azure static web app via github workflows
 - Connected Azure PostgreSQL database to azure backend.
 - [Link to phase 1 definition and planning](1_Definition_and_Planning.md)
-- 
+  
 <br>
 <br>
 
