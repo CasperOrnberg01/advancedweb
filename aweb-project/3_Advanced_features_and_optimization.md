@@ -34,7 +34,6 @@ This idea I also had starting from phase1, but on phase 2 more specifically I wa
 
 ## 🔄 Implementation
 
-_Describe what you implemented in this phase. Focus on what changed or was added:_
 
 ### Hosting the application in azure environment
 - Connection string in azure backend web app was slightly incorrect. Adjusted it in azure at *Environment variables* > *App settings*.
@@ -45,6 +44,7 @@ _Describe what you implemented in this phase. Focus on what changed or was added
 <br>
 
 ### Register new user (manager) + Login (authentication)
+- Had slight issues with the bcrypt compatibility in azure environment, at first, since forgot to update json packages.
 - User ID, username, password_hash and role are stored in azure PostgreSQL db on a table called users;, see below:
   ![users_table](censoredhashes.png)
 
