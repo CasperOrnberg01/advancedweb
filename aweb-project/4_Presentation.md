@@ -7,13 +7,15 @@
 
 ## 🎯 Project title
 
-_Give your project a descriptive and informative title._
+**Warehouse management system** / **Varastonhallintajärjestelmä
 
 ---
 
 ## 📝 Project overview
 
 _Briefly describe the project’s purpose, its target users, and its context._
+Idea was to implement warehouse management system for basic inventory handling tasks. Target users are warehouse managers and workers, where managers have functionality to add new users such as new employees, by creating login credentials for them to the system. Managers can also add new items to the system with a description. Both roles managers/workers can ship or receive orders, what immediately updates the quantity of items in the system (database table: items;). Warehouse worker's task along receiving and shipping the products, is correcting the quantity of the items in inventory, by adjusting their amount with the (+)/(-) -buttons, or they can use "change" -button to set a custom quantity to update the correct amount to the database.
+
 
 ---
 
