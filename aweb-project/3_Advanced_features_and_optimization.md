@@ -55,7 +55,7 @@ _Describe what you implemented in this phase. Focus on what changed or was added
 
 <br>
 
--Code for this implementation at [usersController.js](../backend/controllers/usersController.js):
+-Code for this implementation at [usersController.js](../aweb-project/backend/controllers/usersController.js):
 ```
 const db     = require('../config/db'); //tietokantayhteys poolin avulla
 const bcrypt = require('bcrypt'); //bcrypt hashaamiseen ja varmistamsieen
