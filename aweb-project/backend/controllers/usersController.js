@@ -1,15 +1,15 @@
 const db     = require('../config/db'); //tietokantayhteys poolin avulla
 const bcrypt = require('bcrypt'); //bcrypt hashaamiseen ja varmistamsieen
 
-// uuden käyttäjän registeröinti, ja tarkistetaan rooli
+// uuden käyttäjän rekisteröinti, ja tarkistetaan rooli
 exports.registerUser = async (req,res,next) => {
   const { username, password, role } = req.body;
   if (!['manager','worker'].includes(role)) 
     return res.status(400).json({ error: 'Invalid role' });
-//hashataan salasana suolauksen avulla
+// hashataan salasana suolauksen avulla
   const hash = await bcrypt.hash(password, 10);
   try {
-    //lisätään käyttäjä tietokantaan ja palautetaan id + username + rooli
+    // lisätään käyttäjä tietokantaan ja palautetaan id + username + rooli
     const result = await db.query(
       'INSERT INTO users (username,password_hash,role) VALUES ($1,$2,$3) RETURNING id,username,role',
       [username, hash, role]
@@ -19,13 +19,13 @@ exports.registerUser = async (req,res,next) => {
     // virheenkäsittely blokki jos käyttäjänimi jo olemassa
     if (err.code === '23505') // koodi unique name taken
       return res.status(409).json({ error: 'Username taken' });
-      //muut virheet ohjataan yleiselle middlewarelle
+      // muut virheet ohjataan yleiselle middlewarelle
     next(err);
   }
 };
 // autentikoidaan käyttäjä
 exports.authenticate = async (req,res,next) => {
-    //tarkistetaan username+salasana+rooli
+    // tarkistetaan username+salasana+rooli
   const { username, password, role } = req.body;
   try {
     const result = await db.query(
