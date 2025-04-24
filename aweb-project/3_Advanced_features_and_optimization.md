@@ -52,7 +52,14 @@ _Describe what you implemented in this phase. Focus on what changed or was added
 ### Register new user (manager) + Login (authentication)
 - User ID, username, password_hash and role are stored in azure PostgreSQL db, see below:
   ![users_table](censoredhashes.png)
-  
+
+<br>
+
+- Registration flow: *Manager fills out form with (username, password, role)* --> *Frontend sends a POST to /api/users/register* -->  (*usersController.js hashes and stores* --> *to database in users table (id,username,password_hash,role)*
+- Login flow: *user submits credentials: (username, password, role)* --> *Frontend sends POST /api/users/login* --> *controller verifies* --> *if password and role match the stored hash, user is authenticated successfully*
+
+<br>
+
 -Code for this implementation at [usersController.js](../backend/controllers/usersController.js):
 ```
 const db     = require('../config/db'); //tietokantayhteys poolin avulla
@@ -108,7 +115,7 @@ exports.authenticate = async (req,res,next) => {
 
 <br>
 
--Routes:
+- Routes:
 ```
 // routes FROM /backend/routes/users.js:
 
