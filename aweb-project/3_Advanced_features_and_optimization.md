@@ -2,8 +2,6 @@
 
 ## 🎯 Chosen Use Cases or Features to Improve
 
-_Which use case or aspect of the application did you choose to improve or expand? Describe it briefly and explain why you selected it._
-
 ### Hosting the application in azure environment
 - I chose to work on the issue I encountered on phase, where my intention was to host entire application on azure. I had some issues with getting the azure postgresql database connected to the azure web app back end properly. My phase 2 implementation worked locally.
 
@@ -14,9 +12,6 @@ I had this idea starting from phase 1, where warehouse manager would be able to 
 This idea I also had starting from phase1, but on phase 2 more specifically I was thinking of the login functionality, and where the credentials (username, hashed password and role) is stored.
 
 ## 🔍 Original Definition
-
-_Link or reference to the original use case or requirement from Phase 1._
-<br>
 
 ### Original vision was to host entire application in azure:
 - Backend to azure web app via github workflows
