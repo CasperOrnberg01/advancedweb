@@ -46,3 +46,61 @@ _Describe what you implemented in this phase. Focus on what changed or was added
 - Added console.log lines in db.js file to find potential issues in backend log stream.
 - Changed target url in frontend items.jsx and orders.jsx from local to azure backend. Here had very minor and annoying problem, just forgot Https:// protocol infront off the backend address, and didn't notice it at first. Used dev tools to find out more about the potential issue and there I realized what was wrong.
 - Axios calls also use the azure hosted backend from now on. Leaved local implementation in the code, which can be uncommented if wanted to host locally or keep developing in local environment.
+
+<br>
+
+### Register new user (manager) + Login (authentication)
+-Code for this implementation at [usersControllerj.js](../backend/controllers/usersController.js):
+```
+const db     = require('../config/db'); //tietokantayhteys poolin avulla
+const bcrypt = require('bcrypt'); //bcrypt hashaamiseen ja varmistamsieen
+
+// uuden käyttäjän rekisteröinti, ja tarkistetaan rooli
+exports.registerUser = async (req,res,next) => {
+  const { username, password, role } = req.body;
+  if (!['manager','worker'].includes(role)) 
+    return res.status(400).json({ error: 'Invalid role' });
+// hashataan salasana suolauksen avulla
+  const hash = await bcrypt.hash(password, 10);
+  try {
+    // lisätään käyttäjä tietokantaan ja palautetaan id + username + rooli
+    const result = await db.query(
+      'INSERT INTO users (username,password_hash,role) VALUES ($1,$2,$3) RETURNING id,username,role',
+      [username, hash, role]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch(err) {
+    // virheenkäsittely blokki jos käyttäjänimi jo olemassa
+    if (err.code === '23505') // koodi unique name taken
+      return res.status(409).json({ error: 'Username taken' });
+      // muut virheet ohjataan yleiselle middlewarelle
+    next(err);
+  }
+};
+// autentikoidaan käyttäjä
+exports.authenticate = async (req,res,next) => {
+    // tarkistetaan username+salasana+rooli
+  const { username, password, role } = req.body;
+  try {
+    const result = await db.query(
+      'SELECT id,username,password_hash,role FROM users WHERE username=$1',
+      [username]
+    );
+    if (result.rows.length === 0) 
+      return res.status(401).json({ error: 'Invalid credentials' });
+
+    const user = result.rows[0];
+    const ok   = await bcrypt.compare(password, user.password_hash);
+    if (!ok || user.role !== role)
+      return res.status(401).json({ error: 'Invalid credentials' });
+
+    // palautetaan käyttäjätiedot
+    res.json({ id: user.id, username: user.username, role: user.role });
+  } catch(err) {
+    //muiden virheiden ohjaus middlewwarelle
+    next(err);
+  }
+};
+```
+
+
