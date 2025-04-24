@@ -141,3 +141,9 @@ app.use('/api/users', usersRoutes); // rekisteröi users reitit (phase3)
 
 ```
 
+<br>
+
+## Project link
+**Project live at https://red-sky-09c0adf03.6.azurestaticapps.net/**
+- Test login credentials for teacher on ItsLearning phase 3 (optional) submission).
+
