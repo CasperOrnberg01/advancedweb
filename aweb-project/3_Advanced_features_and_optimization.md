@@ -45,7 +45,7 @@ _Describe what you implemented in this phase. Focus on what changed or was added
 <br>
 
 ### Register new user (manager) + Login (authentication)
-- User ID, username, password_hash and role are stored in azure PostgreSQL db, see below:
+- User ID, username, password_hash and role are stored in azure PostgreSQL db on a table called users;, see below:
   ![users_table](censoredhashes.png)
 
 <br>
