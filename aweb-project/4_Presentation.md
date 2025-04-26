@@ -155,7 +155,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 | x | x | x  | x  |
 
 
-| **Total**  | **63h** |                                 |
+| **Total**  | **43h** |                                 |
 
 ---
 
