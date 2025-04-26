@@ -12,7 +12,7 @@
 | 23.4.2025 | 3 | Worked on fixing the integration problem with azure db (postgresql), frontend(azure static web app) and backend (azure web app). Had to also do minor testing w/ dev tools to identify the issues.  | Successfully integrated backend+frontend and db  |
 | 23.4.2025 | 6 | Implementing login functionalities for the wms using bcrypt  | pushed into azure, had some problems again with azure and bcrypt dependecies but finally got it to work and hope it keeps working. |
 | 24.4.2025 | 2 | Phase 3 (optional) report  | Finished phase 3 report  |
-| x | x | x  | x  |
+| 26.4.2025 | 4 | Writing phase 4 report  | Gathered previous work information into a presentation with a plan. Next step is to tomorrow record the presentation itself |
 | x | x | x  | x  |
 | x | x | x  | x  |
 | x | x | x  | x  |
