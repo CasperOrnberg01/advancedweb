@@ -79,8 +79,6 @@ Idea was to implement warehouse management system for basic inventory handling t
   
 [Frontend folder](./frontend)
 
-**Frontend static web app hosted separately at:** https://red-sky-09c0adf03.6.azurestaticapps.net
-
 ### Backend 
 - Backend is built using Node.js and Express, for building RESTful APIs.
 - Handles HTTP requests and routes them to the controllers in backend.
@@ -95,7 +93,6 @@ Idea was to implement warehouse management system for basic inventory handling t
   
  [Backend folder](./backend)
  
-**Backend web app hosted separately at:** casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net
 
   <br>
 
