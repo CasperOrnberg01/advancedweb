@@ -126,12 +126,12 @@ Idea was to implement warehouse management system for basic inventory handling t
 ## ☀️ Reflection and future work
 
 ### Reflection & Issues encountered
--Project took plenty of time, and had some setbacks and problems, which made me feel miserable and frustrated.
--Hardest part was working with the backend, and making backend and frontend "communicate".
--Biggest frustration was AZURE
--Succeeding on hard parts gave more motivation and energy to push through:
-  -Problems connecting azure postgresql to azure web app (backend), issue with connection string = Solved this by following outputs from azure web app (backend) log stream.
-  -Issue encountered with bcrypt and azure compatibility, fixed with updating json packages in github.
+- Project took plenty of time, and had some setbacks and problems, which made me feel miserable and frustrated.
+- Hardest part was working with the backend, and making backend and frontend "communicate".
+- Biggest frustration was AZURE
+- Succeeding on hard parts gave more motivation and energy to push through:
+  - Problems connecting azure postgresql to azure web app (backend), issue with connection string = Solved this by following outputs from azure web app (backend) log stream.
+  - Issue encountered with bcrypt and azure compatibility, fixed with updating json packages in github.
 
 ### Future work ideas
 - Working on UI, to make it more user-friendly and aesthetic.
