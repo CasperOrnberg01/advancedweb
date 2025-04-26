@@ -40,12 +40,26 @@ Idea was to implement warehouse management system for basic inventory handling t
 
 ## 📌 Use case summary
 
-_Link to the use cases defined in Phase 1._
+[Link to the use cases defined in Phase 1](1_Definition_and_Planning.md)
 
-| Use Case | Implemented (Yes/No) | Demonstration / Notes |
+**Abreviations for the table explained:**
+- Phase 1 = (P1): Use cases from phase 1.
+- Phase 2 = (P2): Use cases / new functionalities added on phase 2.
+- Phase 3 = (P3): Use cases / new functionalities added on phase 3.
+
+  <br>
+  
+| Use Case | Implemented (Yes/No) | Explanation / Timestamp on video |
 |----------|----------------------|------------------------|
-| hhjgghgj | Yes | Implemented using secure session handling. Demo at 2:45 in the video. |
-| yhyyu  | No | Not prioritized, possible future work. |
+| Both roles: Login (P1+P2+P3) | Yes | Role based access: Frontend login form sends credentials to backend API --> login handled in backend where is checked that user's credentials and role matches the bcrypt hash: "password_hash" stored in "users" -table in the database. Timestamp on video: --  |
+| Warehouse manager: add new item to the system (P1) | Yes | Backend API route /api/items is used to add new items to system. Implementation and logic for adding new items is in the itemsController.js file. Frontend in Items.jsx includes the creation of the form for manager and when submitting the form, POST request is send to the backend to add new item to the system. Timestamp on video: - |
+| Warehouse manager: Delete item from the system (P2)   | Yes | - |
+| Warehouse manager: Register new user to the system (P3)  | Yes | - |
+| Both roles: Receive/ship orders (P1+P2)   | Yes | - |
+| Both roles: Cancel order creation (P1+P2)   | Yes | - |
+| Both roles: View all items in the system: (P1+P2)  | Yes | - |
+| Warehouse worker: Update quantity of items (P1) | Yes | - |
+|   | - | - |
 
 _Add explanations for each use case, including demo timestamps if using video._
 
