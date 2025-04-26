@@ -99,21 +99,21 @@ Idea was to implement warehouse management system for basic inventory handling t
 
 ---
 1. Working with defining the project idea and planning
-   -Environment: Azure
-   -Backend: Node.js with Express
-   -Frontend: React
-   -Database: Azure Postgresql
-   -Making user personas and coming up with use cases and user flows.
-   -Worked on frontend, to make UI prototypes
+   - Environment: Azure
+   - Backend: Node.js with Express
+   - Frontend: React
+   - Database: Azure Postgresql
+   - Making user personas and coming up with use cases and user flows.
+   - Worked on frontend, to make UI prototypes
 [1_Definition_and_Planning.md](1_Definition_and_Planning.md)
 
 <br>
 
 2. Main functionalities
-   -Warehouse manager: View, add, delete items
-   -Warehouse worker: update quantities of existing items
-   -Both roles can create new orders ship/receive
-   -Testing and error handling
+   - Warehouse manager: View, add, delete items
+   - Warehouse worker: update quantities of existing items
+   - Both roles can create new orders ship/receive
+   - Testing and error handling
 [2_Basic_structure_and_main_functionalities.md](2_Basic_structure_and_main_functionalities.md)
 
 <br>
@@ -137,7 +137,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 - Working on UI, to make it more user-friendly and aesthetic.
 - Possibly integrating JWT to enhance security and scalability.
 
----
+
 
 ## 📊 Work Hours Log
 [Link to original project logbook](logbook.md)
@@ -161,7 +161,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 
 | **Total**  | **43h** |                                 |
 
----
+
 
 ## 🪢 Presentation link
 
