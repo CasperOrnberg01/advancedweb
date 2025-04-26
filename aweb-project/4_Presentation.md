@@ -53,13 +53,14 @@ Idea was to implement warehouse management system for basic inventory handling t
 |----------|----------------------|------------------------|
 | Both roles: Login (P1+P2+P3) | Yes | Role based access: Frontend login form sends credentials to backend API --> login handled in backend where is checked that user's credentials and role matches the bcrypt hash: "password_hash" stored in "users" -table in the database. Timestamp on video: --  |
 | Warehouse manager: add new item to the system (P1) | Yes | Backend API route /api/items is used to add new items to system. Implementation and logic for adding new items is in the itemsController.js file. Frontend in Items.jsx includes the creation of the form for manager and when submitting the form, POST request is send to the backend to add new item to the system. Timestamp on video: - |
-| Warehouse manager: Delete item from the system (P2)   | Yes | In frontend, when "Delete" button |
-| Warehouse manager: Register new user to the system (P3)  | Yes | - |
-| Both roles: Receive/ship orders (P1+P2)   | Yes | - |
-| Both roles: Cancel order creation (P1+P2)   | Yes | - |
-| Both roles: View all items in the system: (P1+P2)  | Yes | - |
-| Warehouse worker: Update quantity of items (P1) | Yes | - |
-|   | - | - |
+| Warehouse manager: Delete item from the system (P2)   | Yes | The delete logic is handled in backend, based on item's ID, and item is removed from the items table in database. Timestamp on video: --  |
+| Warehouse manager: Register new user to the system (P3)  | Yes | In frontend manager enters new user's details and submitting form sends POST request to backend. In backend POST /api/users/register route registers new user by adding their username, password_hash and role into the database's user table. Timestamp on video: --  |
+| Both roles: Receive/ship orders (P1+P2)   | Yes | Both roles can create orders, where "Receiving order" adds the quantity of the items the order includes into the database, and vice versa "Ship order" decreases the amount of items from the system. Frontend send order --> POST request to backend where the process is handled, by updating items table through the order_items table. Timestamp on video: --   |
+| Both roles: Cancel order creation (P1+P2)   | Yes | Order creation can be cancelled just by exiting the order -scene, the "cancel" -button in order scene is just more of a "cosmetic" at this point. The logic behind order cancellation is that if the order is interrupted like switching scene, or pressing cancel button, the UI is resetted and order creation data is cleared. Timestamp on video: --  |
+| Both roles: View order history | Yes | Frontend makes GET request to /api/orders endpoint and the backend reuturns the list of "existing" or the past orders. Orders.jsx is responsible for displaying the list in frontend for the user. Timestamp on video: -- |
+| Both roles: View all items in the system: (P1+P2)  | Yes | When Items component is loaded GET request is made to backend to retrieve and display all items currently in the system. Timestamp on video: --  |
+| Warehouse worker: Update quantity of items (P1) | Yes | Warehouse workers can modify the quantity of items with (+)/(-) -buttons, or with the "change" -button to set custom quantity. Timestamp on video: --  |
+
 
 _Add explanations for each use case, including demo timestamps if using video._
 
