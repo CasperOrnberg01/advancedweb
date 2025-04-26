@@ -53,7 +53,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 |----------|----------------------|------------------------|
 | Both roles: Login (P1+P2+P3) | Yes | Role based access: Frontend login form sends credentials to backend API --> login handled in backend where is checked that user's credentials and role matches the bcrypt hash: "password_hash" stored in "users" -table in the database. Timestamp on video: --  |
 | Warehouse manager: add new item to the system (P1) | Yes | Backend API route /api/items is used to add new items to system. Implementation and logic for adding new items is in the itemsController.js file. Frontend in Items.jsx includes the creation of the form for manager and when submitting the form, POST request is send to the backend to add new item to the system. Timestamp on video: - |
-| Warehouse manager: Delete item from the system (P2)   | Yes | - |
+| Warehouse manager: Delete item from the system (P2)   | Yes | In frontend, when "Delete" button |
 | Warehouse manager: Register new user to the system (P3)  | Yes | - |
 | Both roles: Receive/ship orders (P1+P2)   | Yes | - |
 | Both roles: Cancel order creation (P1+P2)   | Yes | - |
