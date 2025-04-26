@@ -3,7 +3,8 @@
 ## 🎯 Project title
 
 **Warehouse management system** / **Varastonhallintajärjestelmä**
-
+**Link to the project:** https://red-sky-09c0adf03.6.azurestaticapps.net/
+**IMPORTANT!! Test logins for teacher to the application in ItsLearning submission**
 ## 📝 Project overview
 
 
@@ -70,6 +71,8 @@ Idea was to implement warehouse management system for basic inventory handling t
 - React used to build the frontend application, using component-based architecture
 - Component-based architecture makes it easy to reuse and develope further components
 - Axios used to make requests from frontend to backend. (Retrieving and sending data)
+[Frontend folder](./frontend)
+**Frontend static web app hosted separately at:** https://red-sky-09c0adf03.6.azurestaticapps.net
 ### Backend 
 - Backend is built using Node.js and Express, for building RESTful APIs.
 - Handles HTTP requests and routes them to the controllers in backend.
@@ -80,7 +83,8 @@ Idea was to implement warehouse management system for basic inventory handling t
   -orders: Stores order details: order type, creation time.
   -order_items: join table that links orders to their products by product ID and quantities.
   -users: Stores User ID, username, password_hash and role.
-
+ [Backend folder](./backend)
+**Backend web app hosted separately at:** casperwms-gbedepega8afhhft.canadacentral-01.azurewebsites.net
   <br>
 
   **Picture of the tables in database**
