@@ -29,7 +29,7 @@ function Items({ userRole }) {
       console.log('Fetched items:', response.data);
       setItems(response.data);
     } catch (error) {
-      console.error('Virhe haettaessa tuotteita:', error);
+      console.error('Error when fetching items:', error);
     }
   };
 
@@ -49,7 +49,7 @@ function Items({ userRole }) {
       setNewItemName('');
       setNewItemDesc('');
     } catch (error) {
-      console.error('Virhe tuotetta lisättäessä:', error);
+      console.error('Error adding an item:', error);
     }
   };
 
@@ -69,13 +69,13 @@ function Items({ userRole }) {
       );
       setItems(updatedItems);
     } catch (error) {
-      console.error('Virhe määrän päivityksessä:', error);
+      console.error('Error updating quantity:', error);
     }
   };
 
   // Warehouse Worker muuttaa tuotteen määrää suoraan syötteellä
   const changeQuantity = async (id) => {
-    const newQty = parseInt(prompt('Anna uusi määrä:'), 10);
+    const newQty = parseInt(prompt('Enter new quantity:'), 10);
     if (isNaN(newQty)) return; // Jos syöte ei ole numero, ei tehdä mitään
     try {
       const response = await axios.put(`${baseUrl}/api/items/${id}`, {
@@ -87,7 +87,7 @@ function Items({ userRole }) {
       );
       setItems(updatedItems);
     } catch (error) {
-      console.error('Virhe määrän muuttamisessa:', error);
+      console.error('Error changing quantity:', error);
     }
   };
 
@@ -99,45 +99,45 @@ function Items({ userRole }) {
       // Poistetaan tuote tilasta niin ja UI päivittyy
       setItems(items.filter(item => item.id !== id));
     } catch (error) {
-      console.error('Virhe tuotteen poistamisessa:', error);
+      console.error('Error deleting item:', error);
     }
   };
 
   return (
     <div className="items">
-      <h2>Tuotteet</h2>
+      <h2>Items</h2>
 
       {/* Warehouse Manager -näkymä: Uuden tuotteen lisäämisen lomake */}
       {userRole === 'manager' && (
         <div className="add-item">
-          <h3>Lisää uusi tuote</h3>
+          <h3>Add a new item</h3>
           <input
             type="text"
-            placeholder="Tuotteen nimi"
+            placeholder="Item name"
             value={newItemName}
             onChange={(e) => setNewItemName(e.target.value)}
           />
           <br />
           <textarea
-            placeholder="Tuotteen kuvaus"
+            placeholder="Item description"
             value={newItemDesc}
             onChange={(e) => setNewItemDesc(e.target.value)}
           />
           <br />
-          <button onClick={handleAddItem}>Lisää tuote</button>
+          <button onClick={handleAddItem}>Add item</button>
         </div>
       )}
 
       {/* Warehouse Worker -näkymä: Näyttää tuotteet ja +- sekä change painike */}
       {userRole === 'worker' && (
         <div className="update-quantity">
-          <h3>Päivitä tuotteen määrä</h3>
+          <h3>Update quantity</h3>
           <ul>
             {items.map((item) => (
               <li key={item.id}>
-                <strong>{item.name}</strong> – Määrä: {item.quantity}
+                <strong>{item.name}</strong> – Quantity: {item.quantity}
                 <br />
-                <em>Kuvaus:</em> {item.description}
+                <em>Description:</em> {item.description}
                 <br />
                 <button onClick={() => adjustQuantity(item.id, 1)}>+</button>
                 <button onClick={() => adjustQuantity(item.id, -1)}>-</button>
@@ -151,15 +151,15 @@ function Items({ userRole }) {
       {/* Warehouse Manager -näkymä: Näyttää nykyiset tuotteet jossa myös delete painike on mukana */}
       {userRole === 'manager' && (
         <div className="items-list">
-          <h3>Nykyiset tuotteet</h3>
+          <h3>Current items</h3>
           <ul>
             {items.map((item) => (
               <li key={item.id}>
-                <strong>{item.name}</strong> – Määrä: {item.quantity}
+                <strong>{item.name}</strong> – Quantity: {item.quantity}
                 <br />
-                <em>Kuvaus:</em> {item.description}
+                <em>Description:</em> {item.description}
                 <br />
-                <button className="delete" onClick={() => deleteItem(item.id)}>Poista</button>
+                <button className="delete" onClick={() => deleteItem(item.id)}>Delete</button>
               </li>
             ))}
           </ul>
