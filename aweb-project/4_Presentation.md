@@ -90,6 +90,7 @@ Idea was to implement warehouse management system for basic inventory handling t
   <br>
 
 **Picture of the users table**
+
 ![users](censoredhashes.png)
 
 
