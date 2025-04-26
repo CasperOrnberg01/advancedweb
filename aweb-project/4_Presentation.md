@@ -22,7 +22,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 
 <br>
 
-| ** Access control table **                                            |
+ ** Access control table **                                            
 | Feature                          | Manager (Admin) | Worker (Regular) |
 |----------------------------------|:---------------:|:----------------:|
 | **Add new item**                 | Yes             | No               |
