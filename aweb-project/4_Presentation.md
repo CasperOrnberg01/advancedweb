@@ -75,8 +75,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 - React used to build the frontend application, using component-based architecture
 - Component-based architecture makes it easy to reuse and develope further components
 - Axios used to make requests from frontend to backend. (Retrieving and sending data)
-  
-  <br>
+
   
 [Frontend folder](./frontend)
 
@@ -93,7 +92,6 @@ Idea was to implement warehouse management system for basic inventory handling t
   -order_items: join table that links orders to their products by product ID and quantities.
   -users: Stores User ID, username, password_hash and role.
   
-  <br>
   
  [Backend folder](./backend)
  
