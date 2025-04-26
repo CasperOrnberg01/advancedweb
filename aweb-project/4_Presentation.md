@@ -36,9 +36,9 @@ Idea was to implement warehouse management system for basic inventory handling t
 [Link to the use cases defined in Phase 1](1_Definition_and_Planning.md)
 
 **Abreviations for the table explained:**
-- Phase 1 = (P1): Use cases from phase 1.
-- Phase 2 = (P2): Use cases / new functionalities added on phase 2.
-- Phase 3 = (P3): Use cases / new functionalities added on phase 3.
+- Phase 1 = (P1): Use cases from phase 1. [1_Definition_and_Planning.md](1_Definition_and_Planning.md)
+- Phase 2 = (P2): Use cases / new functionalities added on phase 2. [2_Basic_structure_and_main_functionalities.md](2_Basic_structure_and_main_functionalities.md)
+- Phase 3 = (P3): Use cases / new functionalities added on phase 3. [3_Advanced_features_and_optimization.md](3_Advanced_features_and_optimization.md)
 
   <br>
   
