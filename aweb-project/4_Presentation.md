@@ -140,7 +140,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 ---
 
 ## 📊 Work Hours Log
-
+[Link to original project logbook](logbook.md)
 # Project logbook
 
 | Date  | Used hours | Subject(s) |  outcome |
