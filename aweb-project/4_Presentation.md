@@ -21,6 +21,7 @@ Idea was to implement warehouse management system for basic inventory handling t
 - Warehouse **worker**  --> Think of as an regular employee (basic priviledges)
 
 <br>
+
 | ** Access control table **                                            |
 | Feature                          | Manager (Admin) | Worker (Regular) |
 |----------------------------------|:---------------:|:----------------:|
