@@ -3,8 +3,12 @@
 ## 🎯 Project title
 
 **Warehouse management system** / **Varastonhallintajärjestelmä**
+
 **Link to the project:** https://red-sky-09c0adf03.6.azurestaticapps.net/
+
 **IMPORTANT!! Test logins for teacher to the application in ItsLearning submission**
+
+
 ## 📝 Project overview
 
 
