@@ -84,12 +84,13 @@ Idea was to implement warehouse management system for basic inventory handling t
   <br>
 
   **Picture of the tables in database**
-  [tables](tables.jpg)
+
+  ![tables](tables.jpg)
   
   <br>
 
 **Picture of the users table**
-[users](censoredhashes.png)
+![users](censoredhashes.png)
 
 
 ## 🚂 Development process
