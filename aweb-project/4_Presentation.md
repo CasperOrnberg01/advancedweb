@@ -69,18 +69,80 @@ _Add explanations for each use case, including demo timestamps if using video._
 ## ✍️ Technical implementation
 
 _Describe technologies used, architectural decisions, and how key features were implemented._
+### Environment
+- Totally hosted in azure:
+  -Database: Azure postgreSQL
+  -Backend: Azure web app
+  -Frontend: Azure static web app
+  - npm for dependency management
+  - nodemon to automatically restart server after making changes to code
+### Frontend
+- React used to build the frontend application, using component-based architecture
+- Component-based architecture makes it easy to reuse and develope further components
+- Axios used to make requests from frontend to backend. (Retrieving and sending data)
+### Backend 
+- Backend is built using Node.js and Express, for building RESTful APIs.
+- Handles HTTP requests and routes them to the controllers in backend.
+- Backend uses Azure PostgreSQL as the database, and their connection is made with the pg-promise library.
+- Bcrypt for password hashing, for example when manager registers user password is hashed before storing it in the database.
+- For the project 4 tables are used in the database:
+  -items: contains details such as name, quantity and description.
+  -orders: Stores order details: order type, creation time.
+  -order_items: join table that links orders to their products by product ID and quantities.
+  -users: Stores User ID, username, password_hash and role.
 
----
+  <br>
+
+  **Picture of the tables in database**
+  [tables](tables.jpg)
+  
+  <br>
+
+**Picture of the users table**
+[users](censoredhashes.png)
+
 
 ## 🚂 Development process
 
 _Summarize your progress from start to finish, mentioning key decisions or changes along the way._
 
 ---
+1. Working with defining the project idea and planning
+   -Environment: Azure
+   -Backend: Node.js with Express
+   -Frontend: React
+   -Database: Azure Postgresql
+   -Making user personas and coming up with use cases and user flows.
+   -Worked on frontend, to make UI prototypes
+[1_Definition_and_Planning.md](1_Definition_and_Planning.md)
+
+<br>
+
+2. Main functionalities
+   -Warehouse manager: View, add, delete items
+   -Warehouse worker: update quantities of existing items
+   -Both roles can create new orders ship/receive
+   -Testing and error handling
+[2_Basic_structure_and_main_functionalities.md](2_Basic_structure_and_main_functionalities.md)
+
+<br>
+
+3. Extra features or improvements (optional)
+   - Host application in azure environment (failed on phase 2, only local implementation there)
+   - Implemented functionality for manager -role to register new employees into the system
+   - Login (with authentication)
 
 ## ☀️ Reflection and future work
 
-_What worked well? What challenges did you face? What would you add or improve in the future?_
+### Reflection & Issues encountered
+-Project took plenty of time, and had some setbacks and problems, which made me feel miserable and frustrated.
+-Succeeding on hard parts gave more motivation and energy to push through:
+  -Problems connecting azure postgresql to azure web app (backend), issue with connection string = Solved this by following outputs from azure web app (backend) log stream.
+  -Issue encountered with bcrypt and azure compatibility, fixed with updating json packages in github.
+
+### Future work ideas
+- Working on UI, to make it more user-friendly and aesthetic.
+- Possibly integrating JWT to enhance security and scalability.
 
 ---
 
