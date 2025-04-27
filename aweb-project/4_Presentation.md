@@ -178,4 +178,6 @@ Idea was to implement warehouse management system for basic inventory handling t
 
 ## 🪢 Presentation link
 
-_Add a link to your video presentation or state that it was presented live._
+**Link to the presentation:** https://centriafi-my.sharepoint.com/:v:/g/personal/casper_ornberg_centria_fi/EYLEyNjxp9JHl3PPP8Gva44B6zDjGzH0DheCKguKmrjawA?e=DoDmzl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+**Try this link, if first didn't work:** https://centriafi-my.sharepoint.com/:v:/r/personal/casper_ornberg_centria_fi/Documents/video1438923189.mp4?csf=1&web=1&e=ybASnP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
