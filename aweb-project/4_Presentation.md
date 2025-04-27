@@ -66,9 +66,9 @@ Idea was to implement warehouse management system for basic inventory handling t
 
 ### Environment
 - Totally hosted in azure:
-  -Database: Azure postgreSQL
-  -Backend: Azure web app
-  -Frontend: Azure static web app
+  - Database: Azure postgreSQL
+  - Backend: Azure web app
+  - Frontend: Azure static web app
   - npm for dependency management
   - nodemon to automatically restart server after making changes to code
 ### Frontend
@@ -85,10 +85,10 @@ Idea was to implement warehouse management system for basic inventory handling t
 - Backend uses Azure PostgreSQL as the database, and their connection is made with the pg-promise library.
 - Bcrypt for password hashing, for example when manager registers user password is hashed before storing it in the database.
 - For the project 4 tables are used in the database:
-  -items: contains details such as name, quantity and description.
-  -orders: Stores order details: order type, creation time.
-  -order_items: join table that links orders to their products by product ID and quantities.
-  -users: Stores User ID, username, password_hash and role.
+  - items: contains details such as name, quantity and description.
+  - orders: Stores order details: order type, creation time.
+  - order_items: join table that links orders to their products by product ID and quantities.
+  - users: Stores User ID, username, password_hash and role.
   
   
  [Backend folder](./backend)
